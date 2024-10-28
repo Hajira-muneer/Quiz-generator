@@ -1,0 +1,32 @@
+class Question:
+    def __init__(self, prompt, answer):
+        self.prompt = prompt
+        self.answer = answer
+
+
+def run_quiz(questions):
+    score = 0
+    for question in questions:
+        print(question.prompt)
+        answer = input("Your answer: ")
+        if answer.lower() == question.answer.lower():
+            score += 1
+            print("Correct!")
+        else:
+            print(f"Wrong! The correct answer was: {question.answer}")
+        print()  # Print a newline for better readability
+    print(f"You got {score}/{len(questions)} correct!")
+
+
+def main():
+    questions = [
+        Question("What is the capital of France?\n(a) London\n(b) Berlin\n(c) Paris\n", "c"),
+        Question("What is 2 + 2?\n(a) 3\n(b) 4\n(c) 5\n", "b"),
+        Question("What is the largest planet in our solar system?\n(a) Earth\n(b) Jupiter\n(c) Mars\n", "b"),
+    ]
+
+    run_quiz(questions)
+
+
+if __name__ == "__main__":
+    main()
